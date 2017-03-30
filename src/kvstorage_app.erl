@@ -1,6 +1,4 @@
 %% @author Mochi Media <dev@mochimedia.com>
-%% @copyright kvstorage Mochi Media <dev@mochimedia.com>
-
 %% @doc Callbacks for the kvstorage application.
 
 -module(kvstorage_app).
