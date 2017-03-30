@@ -10,7 +10,7 @@
          deleted/1]).
 
 -type req()     :: tuple().
--type result()    :: string().
+-type result()  :: string().
 
 -spec ok(req(), result()) -> string().
 ok(Req, Result) ->
