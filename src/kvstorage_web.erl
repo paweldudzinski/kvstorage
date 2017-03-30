@@ -28,28 +28,28 @@ loop(Req, _) ->
                 end;
             'POST' ->
                 case Path of
-					[] ->
-						{ok, Result} = request_handler_http:handle_post(Req),
-						response_handler:handle(Req, Result);
+                    [] ->
+                        {ok, Result} = request_handler_http:handle_post(Req),
+                        response_handler:handle(Req, Result);
                     _ ->
                        http_responses:not_found(Req)
                 end;
             'PUT' ->
-				case Path of
-					[] ->
-						{ok, Result} = request_handler_http:handle_put(Req),
-						response_handler:handle(Req, Result);
-					_ ->
-						http_responses:not_found(Req)
-				end;
-			'DELETE' ->
-				case Path of
-					[] ->
-						{ok, Result} = request_handler_http:handle_delete(Req),
-						response_handler:handle(Req, Result);
+                case Path of
+                    [] ->
+                        {ok, Result} = request_handler_http:handle_put(Req),
+                        response_handler:handle(Req, Result);
                     _ ->
-						http_responses:not_found(Req)
-				end;
+                        http_responses:not_found(Req)
+                end;
+            'DELETE' ->
+                case Path of
+                    [] ->
+                        {ok, Result} = request_handler_http:handle_delete(Req),
+                        response_handler:handle(Req, Result);
+                    _ ->
+                        http_responses:not_found(Req)
+                end;
             _ ->
                 Req:respond({405, [], []})
         end
