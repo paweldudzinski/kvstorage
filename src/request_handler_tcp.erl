@@ -14,12 +14,12 @@ handle(Req) ->
 			X = atom_to_list(Result)
 	end,
 	list_to_binary(X ++ <<"\r\n">>).
-	
+
 -spec prepare_request(binary()) -> {ok, string(), list()}.
 prepare_request(Req) ->
 	[Method|Params] = string:tokens(kvstorage_helpers:strip(Req), " "),
 	{ok, Method, Params}.
-	
+
 -spec get_from_storage(method()) -> {found, string()} | atom().
 get_from_storage({Method, Params}) ->
 	case {Method, Params} of 

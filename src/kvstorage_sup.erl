@@ -43,12 +43,12 @@ upgrade() ->
 %% @spec init([]) -> SupervisorTree
 %% @doc supervisor callback.
 init([]) ->
-    Web = web_specs(kvstorage_web, 8080),
-    StorageServer = ?CHILD(kvstorage_server, start_link, []),
+	Web = web_specs(kvstorage_web, 8080),
+	StorageServer = ?CHILD(kvstorage_server, start_link, []),
 	SimpleTCP = ?CHILD(simple_tcp, start_link, [3456]),
 	SimpleUDP = ?CHILD(simple_udp, start_link, [8789]),
-    Processes = [Web, StorageServer, SimpleTCP, SimpleUDP],
-    Strategy = {one_for_one, 10, 10},
+	Processes = [Web, StorageServer, SimpleTCP, SimpleUDP],
+	Strategy = {one_for_one, 10, 10},
    
     {ok, {Strategy, lists:flatten(Processes)}}.
 
