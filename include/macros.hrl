@@ -1,0 +1,6 @@
+-define(HEADERS, [{"Content-Type", "text/plain"}]).
+-define(OK, 200).
+-define(CREATED, 201).
+-define(NO_CONTENT, 204).
+-define(NOT_FOUND, 404).
+-define(CONFLICT, 409).

@@ -1,0 +1,9 @@
+%% -*- erlang -*-
+{application, kvstorage,
+ [{description, "Key Value Storage"},
+  {vsn, "0.1"},
+  {modules, []},
+  {registered, []},
+  {mod, {'kvstorage_app', []}},
+  {env, []},
+  {applications, [kernel, stdlib, crypto]}]}.
