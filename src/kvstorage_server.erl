@@ -31,19 +31,19 @@ start_link() ->
     gen_server:start_link({local, ?SERVER}, ?MODULE, [], []).
     
 kv_get(Key) ->
-    Result = gen_server:call(?SERVER, {rest, get, Key}),
+    Result = gen_server:call(?SERVER, {get, Key}),
     {ok, Result}.
 
 kv_delete(Key) ->
-    Result = gen_server:call(?SERVER, {rest, delete, Key}),
+    Result = gen_server:call(?SERVER, {delete, Key}),
     {ok, Result}.
 
 kv_post(Key, Value) ->
-    Result = gen_server:call(?SERVER, {rest, post, Key, Value}),
+    Result = gen_server:call(?SERVER, {post, Key, Value}),
     {ok, Result}.
     
 kv_put(Key, Value) ->
-    Result = gen_server:call(?SERVER, {rest, put, Key, Value}),
+    Result = gen_server:call(?SERVER, {put, Key, Value}),
     {ok, Result}.
     
 
@@ -54,19 +54,19 @@ kv_put(Key, Value) ->
 init([]) ->
     {ok, ets:new(store, [set, named_table])}.
 
-handle_call({rest, get, Key}, _From, Store) ->
+handle_call({get, Key}, _From, Store) ->
     Result = kvstorage_storage:storage_get(Key, Store),
     {reply, Result, Store};
 
-handle_call({rest, post, Key, Value}, _From, Store) ->
+handle_call({post, Key, Value}, _From, Store) ->
     Result = kvstorage_storage:storage_save(Key, Value, Store),
     {reply, Result, Store};
 
-handle_call({rest, put, Key, Value}, _From, Store) ->
+handle_call({put, Key, Value}, _From, Store) ->
     Result = kvstorage_storage:storage_update(Key, Value, Store),
     {reply, Result, Store};
 
-handle_call({rest, delete, Key}, _From, Store) ->
+handle_call({delete, Key}, _From, Store) ->
     Result = kvstorage_storage:storage_delete(Key, Store),
     {reply, Result, Store};
   
