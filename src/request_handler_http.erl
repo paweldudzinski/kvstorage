@@ -6,20 +6,20 @@
 
 -spec handle_get(req()) -> {ok, string()} | {ok, atom()}.
 handle_get(Req) ->
-	[{"key", Key}] = Req:parse_qs(),
+     [{"key", Key}] = Req:parse_qs(),
     kvstorage_server:kv_get(Key).
 
 -spec handle_delete(req()) -> {ok, atom()}.
 handle_delete(Req) ->
-	[{"key", Key}] = Req:parse_qs(),
+     [{"key", Key}] = Req:parse_qs(),
     kvstorage_server:kv_delete(Key).
 
 -spec handle_post(req()) -> {ok, atom()}.
 handle_post(Req) ->
-	[{"key", Key},{"value", Value}] = Req:parse_qs(),
-	kvstorage_server:kv_post(Key, Value).
+     [{"key", Key},{"value", Value}] = Req:parse_qs(),
+     kvstorage_server:kv_post(Key, Value).
 
 -spec handle_put(req()) -> {ok, atom()}.
 handle_put(Req) ->
-	[{"key", Key},{"value", Value}] = Req:parse_qs(),
-	kvstorage_server:kv_put(Key, Value).
+     [{"key", Key},{"value", Value}] = Req:parse_qs(),
+     kvstorage_server:kv_put(Key, Value).

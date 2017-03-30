@@ -4,4 +4,4 @@
 
 -spec strip(string()) -> string().
 strip(Val) ->
-	re:replace(Val, "(^\\s+)|(\\s+$)", "", [global,{return,list}]).
+    re:replace(Val, "(^\\s+)|(\\s+$)", "", [global,{return,list}]).

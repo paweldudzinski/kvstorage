@@ -61,7 +61,7 @@ handle_call({get, Key}, _From, Store) ->
 handle_call({post, Key, Value}, _From, Store) ->
     Result = kvstorage_storage:storage_save(Key, Value, Store),
     {reply, Result, Store};
-
+    	
 handle_call({put, Key, Value}, _From, Store) ->
     Result = kvstorage_storage:storage_update(Key, Value, Store),
     {reply, Result, Store};
@@ -72,7 +72,7 @@ handle_call({delete, Key}, _From, Store) ->
   
 handle_call(_Request, _From, State) ->
     {reply, ok, State}.
-
+		
 handle_cast(_Msg, State) ->
     {noreply, State}.
 
