@@ -1,5 +1,4 @@
-%% @author Mochi Media <dev@mochimedia.com>
-%% @doc Callbacks for the kvstorage application.
+%% part of MochiWeb http serv scafold (make app=kvstorage)
 
 -module(kvstorage_app).
 

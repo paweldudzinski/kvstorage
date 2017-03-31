@@ -1,7 +1,4 @@
-%% @author Mochi Media <dev@mochimedia.com>
-%% @copyright 2010 Mochi Media <dev@mochimedia.com>
-
-%% @doc Supervisor for the kvstorage application.
+%% part of MochiWeb http serv scafold (make app=kvstorage)
 
 -module(kvstorage_sup).
 -author("Mochi Media <dev@mochimedia.com>").

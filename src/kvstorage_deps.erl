@@ -1,9 +1,4 @@
-%% @author Mochi Media <dev@mochimedia.com>
-%% @copyright 2010 Mochi Media <dev@mochimedia.com>
-
-%% @doc Ensure that the relatively-installed dependencies are on the code
-%%      loading path, and locate resources relative
-%%      to this application's path.
+%% part of MochiWeb http serv scafold (make app=kvstorage)
 
 -module(kvstorage_deps).
 
