@@ -12,13 +12,9 @@
 
 -define(CHILD(M, F, P), {M, {M, F, P}, permanent, 2000, worker, [M]}).
 
-%% @spec start_link() -> ServerRet
-%% @doc API for starting the supervisor.
 start_link() ->
     supervisor:start_link({local, ?MODULE}, ?MODULE, []).
 
-%% @spec upgrade() -> ok
-%% @doc Add processes if necessary.
 upgrade() ->
     {ok, {_, Specs}} = init([]),
 
@@ -36,8 +32,6 @@ upgrade() ->
     [supervisor:start_child(?MODULE, Spec) || Spec <- Specs],
     ok.
 
-%% @spec init([]) -> SupervisorTree
-%% @doc supervisor callback.
 init([]) ->
     Web = web_specs(kvstorage_web, 8080),
     StorageServer = ?CHILD(kvstorage_server, start_link, []),
