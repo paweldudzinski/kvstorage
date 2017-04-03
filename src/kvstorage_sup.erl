@@ -1,7 +1,6 @@
 %% part of MochiWeb http serv scafold (make app=kvstorage)
 
 -module(kvstorage_sup).
--author("Mochi Media <dev@mochimedia.com>").
 
 -behaviour(supervisor).
 
